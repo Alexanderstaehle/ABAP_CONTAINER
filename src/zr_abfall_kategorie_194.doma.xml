@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_DOMA" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <DD01V>
+    <DOMNAME>ZR_ABFALL_KATEGORIE_194</DOMNAME>
+    <DDLANGUAGE>E</DDLANGUAGE>
+    <DATATYPE>CHAR</DATATYPE>
+    <LENG>000128</LENG>
+    <OUTPUTLEN>000128</OUTPUTLEN>
+    <VALEXI>X</VALEXI>
+    <DDTEXT>Domäne für Abfall Kategorie</DDTEXT>
+    <DOMMASTER>E</DOMMASTER>
+   </DD01V>
+   <DD07V_TAB>
+    <DD07V>
+     <DOMNAME>ZR_ABFALL_KATEGORIE_194</DOMNAME>
+     <VALPOS>0001</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>M-BAUABFÄL</DOMVALUE_L>
+     <DDTEXT>Bauabfälle mineralisch</DDTEXT>
+    </DD07V>
+    <DD07V>
+     <DOMNAME>ZR_ABFALL_KATEGORIE_194</DOMNAME>
+     <VALPOS>0002</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>G-BAUABFÄL</DOMVALUE_L>
+     <DDTEXT>Bauabfälle gemischt</DDTEXT>
+    </DD07V>
+    <DD07V>
+     <DOMNAME>ZR_ABFALL_KATEGORIE_194</DOMNAME>
+     <VALPOS>0003</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>K-BAUABFÄL</DOMVALUE_L>
+     <DDTEXT>Bauabfälle Kunststoff</DDTEXT>
+    </DD07V>
+    <DD07V>
+     <DOMNAME>ZR_ABFALL_KATEGORIE_194</DOMNAME>
+     <VALPOS>0004</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>BODEN</DOMVALUE_L>
+     <DDTEXT>Boden</DDTEXT>
+    </DD07V>
+    <DD07V>
+     <DOMNAME>ZR_ABFALL_KATEGORIE_194</DOMNAME>
+     <VALPOS>0005</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>ERDE</DOMVALUE_L>
+     <DDTEXT>Erde</DDTEXT>
+    </DD07V>
+    <DD07V>
+     <DOMNAME>ZR_ABFALL_KATEGORIE_194</DOMNAME>
+     <VALPOS>0006</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>HOLZ</DOMVALUE_L>
+     <DDTEXT>Holz</DDTEXT>
+    </DD07V>
+    <DD07V>
+     <DOMNAME>ZR_ABFALL_KATEGORIE_194</DOMNAME>
+     <VALPOS>0007</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>METALL UND</DOMVALUE_L>
+     <DDTEXT>Metall und Schrott</DDTEXT>
+    </DD07V>
+   </DD07V_TAB>
+  </asx:values>
+ </asx:abap>
+</abapGit>

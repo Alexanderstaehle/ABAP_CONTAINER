@@ -1,0 +1,54 @@
+managed;
+with draft;
+
+define behavior for ZI_CONTAINER_194 alias Container
+implementation in class ZBP_CONTAINER_194 unique
+persistent table zcontainer_194
+draft table zdcontainer_194
+//setzt einen Lock auf alle betroffenen Objekte beim berabeiten, erstellen etc, muss root sein
+// total etag identifiziert changes an active Elementen, wenn der Lock abgelaufen ist (muss in Kombination mit @Semantics.systemDateTime.lastChangedAt: true verwendet werden)
+lock master total etag Aktualisierungsdatum
+// etag master sorgt dafür dass actions nicht auf outdated Daten passiert, es setzt einen sogenannten Optimistic lock
+etag master LokalesAktualisierungsdatum
+{
+  create;
+  update;
+  delete;
+
+  field ( numbering : managed, readonly ) ContainerUUID;
+  field ( readonly ) ContainerID, Kategorie, Verfuegbarkeit;
+  field ( readonly ) Erstellungsdatum, Aktualisierungsdatum;
+
+  action ( features : instance ) containerStatusFreigeben result [1] $self;
+  action ( features : instance ) containerStatusBelegen result [1] $self;
+
+  validation validateAbfall on save { field AbfallID; create; }
+  validation validateBestellung on save { field BestellungID; create; }
+  validation validateGewicht on save { field Gewicht; create; }
+
+
+  determination berechneContainerID on save { create; }
+  determination setzeInitialenStatus on modify { create; }
+  determination setzeInitialesMaximalgewicht on modify { create; }
+
+// definiert welche Validierungs-Methoden ausgeführt werden müssen, bevor ein Lock wieder freigegeben werden kann, bzw. die Transaktion ausgeführt werden kann
+  draft determine action Prepare
+  {
+    validation validateAbfall;
+    validation validateBestellung;
+  }
+
+// mapt die Werte der persistenten Tabelle zu den CDS View Element Namen
+  mapping for ZCONTAINER_194
+  {
+    ContainerUUID = c_uuid;
+    BestellungID = b_id;
+    AbfallID = a_id;
+    ContainerID = c_id;
+    Verfuegbarkeit = verfuegbarkeit;
+    Gewicht = gewicht;
+    Maximalgewicht = maximalgewicht;
+    Erstellungsdatum = erstellt_am;
+    Aktualisierungsdatum = aktualisiert_am;
+  }
+}

@@ -1,0 +1,37 @@
+managed; // implementation in class zbp_i_abfall_194 unique;
+with draft;
+
+define behavior for ZI_ABFALL_194 alias Abfall
+implementation in class ZBP_ABFALL_194 unique
+persistent table zabfall_194
+draft table zdabfall_194
+//setzt einen Lock auf alle betroffenen Objekte beim berabeiten, erstellen etc, muss root sein
+// total etag identifiziert changes an active Elementen, wenn der Lock abgelaufen ist (muss in Kombination mit @Semantics.systemDateTime.lastChangedAt: true verwendet werden)
+lock master total etag Aktualisierungsdatum
+// etag master sorgt dafür dass actions nicht auf outdated Daten passiert, es setzt einen sogenannten Optimistic lock
+etag master LokalesAktualisierungsdatum
+{
+  create;
+  update;
+  delete;
+
+  field ( numbering : managed, readonly ) AbfallUUID;
+  field ( readonly ) AbfallID;
+  field ( mandatory ) Kategorie, Preis, Waehrung;
+  field ( readonly ) Erstellungsdatum, Aktualisierungsdatum;
+
+  determination berechneAbfallID on save { create; }
+  determination setzeInitialeWaehrung on modify { create; }
+
+  // mapt die Werte der persistenten Tabelle zu den CDS View Element Namen
+  mapping for ZABFALL_194
+  {
+    AbfallUUID = a_uuid;
+    AbfallID = a_id;
+    Kategorie = kategorie;
+    Preis = preis;
+    Waehrung = waehrung;
+    Erstellungsdatum = erstellt_am;
+    Aktualisierungsdatum = aktualisiert_am;
+  }
+}

@@ -1,0 +1,58 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: { typeName: 'Bestellung',
+                typeNamePlural: 'Bestellungen',
+                title: { type: #STANDARD, label: 'Bestellung', value: 'BestellungID' } },
+  presentationVariant: [{ sortOrder: [{ by: 'BestellungID', direction:  #ASC }], visualizations: [{type: #AS_LINEITEM}] }] }
+
+annotate view ZC_BESTELLUNG_194 with
+{
+  @UI.facet: [ { id:              'Bestellung',
+                 purpose:         #STANDARD,
+                 type:            #IDENTIFICATION_REFERENCE,
+                 label:           'Bestellung',
+                 position:        10 } ]
+
+  @UI.hidden: true
+  BestellungUUID;
+  @UI: {  lineItem:       [ { position: 10, importance: #HIGH } ],
+          identification: [ { position: 10, importance: #HIGH } ] }
+  BestellungID;
+
+  @UI.hidden: true
+  KundeUUID;
+
+  @UI: {  lineItem:       [ { position: 30, importance: #HIGH } ],
+        identification: [ { position: 30, importance: #HIGH } ],
+        selectionField: [ { position: 30 } ] }
+  Lieferdatum;
+
+  @UI: {  lineItem:       [ { position: 31, importance: #HIGH } ],
+          identification: [ { position: 31, importance: #HIGH } ],
+          selectionField: [ { position: 31 } ] }
+  Abholdatum;
+
+  @UI: {  lineItem:       [ { position: 40, importance: #HIGH } ],
+          identification: [ { position: 40, importance: #HIGH } ] }
+  Details;
+
+  @UI: {  lineItem:       [ { position: 50, importance: #HIGH }
+                          , { type: #FOR_ACTION, dataAction: 'bestellStatusStarten', label: 'Starten' },
+                            { type: #FOR_ACTION, dataAction: 'bestellStatusAbschluss', label: 'Abschliessen' }
+                          ],
+          identification: [ { position: 50, importance: #HIGH }
+                          , { type: #FOR_ACTION, dataAction: 'bestellStatusStarten', label: 'Starten' },
+                            { type: #FOR_ACTION, dataAction: 'bestellStatusAbschluss', label: 'Abschliessen' }
+                          ] }
+  Status;
+
+
+  @UI.hidden: true
+  Erstellungsdatum;
+
+  @UI.hidden: true
+  Aktualisierungsdatum;
+
+  @UI.hidden: true
+  LokalesAktualisierungsdatum;
+}

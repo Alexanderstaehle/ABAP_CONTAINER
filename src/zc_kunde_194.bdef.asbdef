@@ -1,0 +1,24 @@
+projection;
+use draft;
+
+define behavior for ZC_KUNDE_194 alias Kunde
+use etag
+{
+  use create;
+  use update;
+  use delete;
+
+  use association _Bestellung { create; with draft; }
+}
+
+define behavior for ZC_BESTELLUNG_194 alias Bestellung
+use etag
+{
+  use update;
+  use delete;
+
+  use association _Kunde { with draft; }
+
+  use action bestellStatusStarten;
+  use action bestellStatusAbschluss;
+}

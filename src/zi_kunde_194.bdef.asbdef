@@ -1,0 +1,79 @@
+managed; // implementation in class zbp_i_kunde_194 unique;
+with draft;
+
+define behavior for ZI_KUNDE_194 alias Kunde
+implementation in class ZBP_KUNDE_194 unique
+persistent table zkunde_194
+draft table zdkunde_194
+lock master total etag Aktualisierungsdatum
+etag master LokalesAktualisierungsdatum
+{
+  create;
+  update;
+  delete;
+  association _Bestellung { create; with draft; }
+
+  field ( numbering : managed, readonly ) KundeUUID;
+  field ( readonly ) KundeID;
+  field ( mandatory ) Vorname, Nachname, Strasse, Hausnummer, PLZ, Stadt;
+  field ( readonly ) Erstellungsdatum, Aktualisierungsdatum;
+
+  determination berechneKundeID on save { create; }
+
+  mapping for ZKUNDE_194
+  {
+    KundeUUID = k_uuid;
+    KundeID = k_id;
+    Vorname = vorname;
+    Nachname = nachname;
+    Strasse = addresse_strasse;
+    Hausnummer = addresse_nummer;
+    PLZ = addresse_plz;
+    Stadt = addresse_stadt;
+    Firma = firma;
+    Ansprechpartner = ansprechpartner;
+    Erstellungsdatum = erstellt_am;
+    Aktualisierungsdatum = aktualisiert_am;
+
+  }
+}
+
+define behavior for ZI_BESTELLUNG_194 alias Bestellung
+implementation in class ZBP_BESTELLUNG_194 unique
+persistent table zbestellung_194
+draft table zdbestellung_194
+lock dependent by _Kunde
+etag master LokalesAktualisierungsdatum
+{
+  update;
+  delete;
+  association _Kunde { with draft; }
+
+  field ( numbering : managed, readonly ) BestellungUUID;
+  field ( readonly ) KundeUUID, BestellungID, Lieferadresse, Status;
+  field ( mandatory ) Lieferdatum;
+  field ( readonly ) Erstellungsdatum, Aktualisierungsdatum;
+
+  action ( features : instance ) bestellStatusStarten result [1] $self;
+  action ( features : instance ) bestellStatusAbschluss result [1] $self;
+
+  determination berechneBestellungID on save { create; }
+  determination setzeInitialenStatus on modify { create; }
+
+  validation validateDaten on save { field Abholdatum, Lieferdatum; create; }
+
+
+  mapping for ZBESTELLUNG_194
+  {
+    BestellungUUID = b_uuid;
+    KundeUUID = k_uuid;
+    BestellungID = b_id;
+    Lieferdatum = lieferdatum;
+    Abholdatum = abholdatum;
+    Details = details;
+    Status = status;
+    Erstellungsdatum = erstellt_am;
+    Aktualisierungsdatum = aktualisiert_am;
+
+  }
+}

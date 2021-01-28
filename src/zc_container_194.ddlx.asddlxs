@@ -1,0 +1,67 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: { typeName: 'Container',
+                typeNamePlural: 'Container',
+                title: { type: #STANDARD, value: 'ContainerID' } } }
+
+annotate view ZC_CONTAINER_194 with
+{
+  @UI.facet: [ { id:            'Container',
+                 purpose:       #STANDARD,
+                 type:          #IDENTIFICATION_REFERENCE,
+                 label:         'Container',
+                 position:      10 },
+                 { id : 'idHeaderEco' ,
+                   type: #DATAPOINT_REFERENCE ,
+                   label: 'Header' ,
+                   purpose: #HEADER ,
+                   targetQualifier: 'Gewicht'} 
+                  ]
+
+  @UI.hidden: true
+  ContainerUUID;
+
+  @UI: { lineItem:       [ { position: 10, importance: #HIGH } ],
+         identification: [ { position: 10, importance: #HIGH } ] }
+  ContainerID;
+  @UI: { lineItem:       [ { position: 20, importance: #HIGH, label: 'Abfall ID' } ],
+         identification: [ { position: 20, label: 'Abfall ID', importance: #HIGH } ],
+         selectionField: [ { position: 10 } ] }
+  AbfallID;
+  @UI: { lineItem:       [ { position: 21, importance: #HIGH } ],
+         identification: [ { position: 21, importance: #HIGH} ] }
+  Kategorie;
+
+
+  @UI: { lineItem:       [ { position: 30, importance: #HIGH, label: 'Bestellungs ID' } ],
+         identification: [ { position: 30, label: 'Bestellungs ID', importance: #HIGH } ],
+         selectionField: [ { position: 20 } ] }
+  BestellungID;
+  @UI: {  lineItem:       [ { position: 40, importance: #HIGH }
+                         , { type: #FOR_ACTION, dataAction: 'containerStatusFreigeben', label: 'Freigeben' }
+                         , { type: #FOR_ACTION, dataAction: 'containerStatusBelegen', label: 'Belegen' }
+                         ],
+         identification: [ { position: 40, importance: #HIGH }
+                         , { type: #FOR_ACTION, dataAction: 'containerStatusFreigeben', label: 'Freigeben' }
+                         , { type: #FOR_ACTION, dataAction: 'containerStatusBelegen', label: 'Belegen' }
+                         ] }
+  Verfuegbarkeit;
+  
+  @UI.lineItem: [{ position: 50 , type: #AS_DATAPOINT, importance: #HIGH}]
+  @UI.dataPoint: { visualization: #PROGRESS ,
+                   targetValueElement: 'Maximalgewicht' }
+  @UI: { identification: [ { position: 50, importance: #HIGH } ] }
+  Gewicht;
+
+  @UI.hidden: true
+  Maximalgewicht;
+
+  @UI.hidden: true
+  Erstellungsdatum;
+
+  @UI.hidden: true
+  Aktualisierungsdatum;
+
+  @UI.hidden: true
+  LokalesAktualisierungsdatum;
+}

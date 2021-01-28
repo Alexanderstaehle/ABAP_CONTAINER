@@ -1,0 +1,43 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: { typeName: 'Abfall',
+                typeNamePlural: 'Abfälle',
+                title: { type: #STANDARD, label: 'Abfall', value: 'AbfallID' } },
+  presentationVariant: [{ sortOrder: [{ by: 'AbfallID', direction:  #ASC }], visualizations: [{type: #AS_LINEITEM}] }] }
+
+annotate view ZC_ABFALL_194 with
+{
+  @UI.facet: [ { id:              'Abfall',
+                 purpose:         #STANDARD,
+                 type:            #IDENTIFICATION_REFERENCE,
+                 label:           'Abfall',
+                 position:        10 } ]
+
+  @UI.hidden: true
+  AbfallUUID;
+  @UI: {  lineItem:       [ { position: 10, importance: #HIGH } ],
+          identification: [ { position: 10, importance: #HIGH } ],
+          dataPoint.title: 'AbfallID' }
+  AbfallID;
+  
+  @UI: {  lineItem:       [ { position: 20, importance: #HIGH } ],
+          identification: [ { position: 20, importance: #HIGH} ] }
+  Kategorie;
+  @UI: {  lineItem:       [ { position: 30, importance: #HIGH } ],
+          identification: [ { position: 30, importance: #HIGH } ],
+          selectionField: [ { position: 30 } ] }
+  Waehrung;
+
+  @UI: {  lineItem:       [ { position: 40, importance: #HIGH } ],
+          identification: [ { position: 40, importance: #HIGH } ] }
+  Preis;
+
+  @UI.hidden: true
+  Erstellungsdatum;
+
+  @UI.hidden: true
+  Aktualisierungsdatum;
+
+  @UI.hidden: true
+  LokalesAktualisierungsdatum;
+}

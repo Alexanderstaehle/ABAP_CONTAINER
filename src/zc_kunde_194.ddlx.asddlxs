@@ -1,0 +1,88 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: { typeName: 'Kunde',
+                typeNamePlural: 'Kunden',
+                title: { type: #STANDARD, value: 'KundeID' } } }
+
+annotate view ZC_KUNDE_194 with
+{
+  @UI.facet: [ { id:            'Kunde',
+                 purpose:       #STANDARD,
+                 type:          #IDENTIFICATION_REFERENCE,
+                 label:         'Kunde',
+                 position:      10 },
+                 { id:              'Bestellung',
+                 purpose:         #STANDARD,
+                 type:            #LINEITEM_REFERENCE,
+                 label:           'Bestellung',
+                 position:        20,
+                 targetElement:   '_Bestellung'},
+                 { type: #FIELDGROUP_REFERENCE ,
+                 label : 'Addresse',
+                 targetQualifier: 'fgAddresse' ,
+                 parentId: 'Kunde' ,
+                 id : 'idGroupAddresse' ,
+                 position: 20 }  ]
+
+  @UI.hidden: true
+  KundeUUID;
+
+  @UI: { lineItem:       [ { position: 10, importance: #HIGH } ],
+         identification: [ { position: 10, importance: #HIGH } ] }
+  KundeID;
+
+  @UI: { lineItem:       [ { position: 20, importance: #HIGH } ],
+         identification: [ { position: 20, importance: #HIGH } ],
+         selectionField: [{ position: 10 }] }
+  @UI.fieldGroup: [{ qualifier: 'fgName' , position: 10 }]
+  Vorname;
+
+  @UI: { lineItem:       [ { position: 30, importance: #HIGH } ],
+         identification: [ { position: 30, importance: #HIGH } ],
+         selectionField: [{ position: 20 }] }
+  @UI.fieldGroup: [{ qualifier: 'fgName' , position: 20 }]
+
+  Nachname;
+
+  @UI: { lineItem:       [ { position: 40, importance: #HIGH } ],
+         identification: [ { position: 40, importance: #HIGH } ] }
+  @UI.fieldGroup: [{ qualifier: 'fgAddresse' , position: 10 }]
+  Strasse;
+  @UI: { lineItem:       [ { position: 41, importance: #HIGH } ],
+       identification: [ { position: 41, importance: #HIGH } ] }
+  @UI.fieldGroup: [{ qualifier: 'fgAddresse' , position: 20 }]
+
+  Hausnummer;
+  @UI: { lineItem:       [ { position: 50, importance: #HIGH } ],
+       identification: [ { position: 50, importance: #HIGH } ] }
+  @UI.fieldGroup: [{ qualifier: 'fgAddresse' , position: 30 }]
+
+  PLZ;
+
+  @UI: { lineItem:       [ { position: 51, importance: #HIGH } ],
+         identification: [ { position: 51, importance: #HIGH } ] }
+  @UI.fieldGroup: [{ qualifier: 'fgAddresse' , position: 40 }]
+
+  Stadt;
+
+  @UI: { lineItem:       [ { position: 60, importance: #HIGH } ],
+       identification: [ { position: 60, importance: #HIGH } ],
+       selectionField: [{ position: 30 }] }
+  Firma;
+
+  @UI: { lineItem:       [ { position: 70, importance: #HIGH } ],
+       identification: [ { position: 70, importance: #HIGH } ] }
+  Ansprechpartner;
+
+  @UI.hidden: true
+  Erstellungsdatum;
+
+  @UI.hidden: true
+  Aktualisierungsdatum;
+
+  @UI.hidden: true
+  LokalesAktualisierungsdatum;
+
+  @UI.selectionField: [ { element: '_Bestellung.BestellungID', position: 80 } ]
+  _Bestellung;
+}

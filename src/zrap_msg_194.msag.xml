@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_MSAG" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <T100A>
+    <ARBGB>ZRAP_MSG_194</ARBGB>
+    <MASTERLANG>E</MASTERLANG>
+    <STEXT>Message Klasse</STEXT>
+   </T100A>
+   <T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZRAP_MSG_194</ARBGB>
+     <MSGNR>001</MSGNR>
+     <TEXT>Kategorie &amp;1 existiert nicht</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZRAP_MSG_194</ARBGB>
+     <MSGNR>002</MSGNR>
+     <TEXT>Bestellung &amp;1 existiert nicht</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZRAP_MSG_194</ARBGB>
+     <MSGNR>003</MSGNR>
+     <TEXT>Abholdatum &amp;1 muss später sein als aktuelles Datum</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZRAP_MSG_194</ARBGB>
+     <MSGNR>004</MSGNR>
+     <TEXT>Lieferdatum &amp;1 darf nicht nach Abholdatum &amp;2 liegen</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZRAP_MSG_194</ARBGB>
+     <MSGNR>005</MSGNR>
+     <TEXT>Gewicht &amp;1 muss kleiner als Maximalgewicht &amp;2 sein</TEXT>
+    </T100>
+   </T100>
+  </asx:values>
+ </asx:abap>
+</abapGit>
