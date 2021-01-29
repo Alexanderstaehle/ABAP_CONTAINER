@@ -58,15 +58,15 @@ CLASS zcm_rap_194 DEFINITION
 
     METHODS constructor
       IMPORTING
-        severity     TYPE if_abap_behv_message=>t_severity DEFAULT if_abap_behv_message=>severity-error
-        textid       LIKE if_t100_message=>t100key OPTIONAL
-        previous     TYPE REF TO cx_root OPTIONAL
-        abholdatum   TYPE z_bestellung_abd_194 OPTIONAL
-        lieferdatum  TYPE z_bestellung_ld_194 OPTIONAL
-        gewicht      TYPE z_container_gw_194 OPTIONAL
-        maximalgewicht  TYPE z_container_gw_194 OPTIONAL
-        abfallid     TYPE z_abfall_id_194 OPTIONAL
-        bestellungid TYPE z_bestellung_id_194 OPTIONAL
+        severity       TYPE if_abap_behv_message=>t_severity DEFAULT if_abap_behv_message=>severity-error
+        textid         LIKE if_t100_message=>t100key OPTIONAL
+        previous       TYPE REF TO cx_root OPTIONAL
+        abholdatum     TYPE z_bestellung_abd_194 OPTIONAL
+        lieferdatum    TYPE z_bestellung_ld_194 OPTIONAL
+        gewicht        TYPE z_container_gw_194 OPTIONAL
+        maximalgewicht TYPE z_container_gw_194 OPTIONAL
+        abfallid       TYPE z_abfall_id_194 OPTIONAL
+        bestellungid   TYPE z_bestellung_id_194 OPTIONAL
       .
 
     DATA abholdatum   TYPE z_bestellung_abd_194 READ-ONLY.

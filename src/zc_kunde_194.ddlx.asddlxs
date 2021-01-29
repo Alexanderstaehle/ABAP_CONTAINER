@@ -82,7 +82,4 @@ annotate view ZC_KUNDE_194 with
 
   @UI.hidden: true
   LokalesAktualisierungsdatum;
-
-  @UI.selectionField: [ { element: '_Bestellung.BestellungID', position: 80 } ]
-  _Bestellung;
 }

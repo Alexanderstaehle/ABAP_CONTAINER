@@ -31,14 +31,14 @@ etag master LokalesAktualisierungsdatum
   determination setzeInitialenStatus on modify { create; }
   determination setzeInitialesMaximalgewicht on modify { create; }
 
-// definiert welche Validierungs-Methoden ausgeführt werden müssen, bevor ein Lock wieder freigegeben werden kann, bzw. die Transaktion ausgeführt werden kann
+  // definiert welche Validierungs-Methoden ausgeführt werden müssen, bevor ein Lock wieder freigegeben werden kann, bzw. die Transaktion ausgeführt werden kann
   draft determine action Prepare
   {
     validation validateAbfall;
     validation validateBestellung;
   }
 
-// mapt die Werte der persistenten Tabelle zu den CDS View Element Namen
+  // mapt die Werte der persistenten Tabelle zu den CDS View Element Namen
   mapping for ZCONTAINER_194
   {
     ContainerUUID = c_uuid;

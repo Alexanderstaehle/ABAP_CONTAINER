@@ -26,6 +26,6 @@ define root view entity ZC_KUNDE_194
       Erstellungsdatum,
       Aktualisierungsdatum,
       LokalesAktualisierungsdatum,
-      _Bestellung  : redirected to composition child ZC_BESTELLUNG_194
+      _Bestellung : redirected to composition child ZC_BESTELLUNG_194
 
 }

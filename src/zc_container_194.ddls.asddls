@@ -23,7 +23,7 @@ define root view entity ZC_CONTAINER_194
       @Search.defaultSearchElement: true
       @EndUserText.label: 'Abfall auswählen'
       AbfallID,
-      @Consumption.valueHelpDefinition: [{entity: {name: 'ZC_ABFALL_194', element: 'Kategorie' }}]    
+      @Consumption.valueHelpDefinition: [{entity: {name: 'ZC_ABFALL_194', element: 'Kategorie' }}]
       @ObjectModel.foreignKey.association: '_Abfall'
       Kategorie,
       @Search.defaultSearchElement: true

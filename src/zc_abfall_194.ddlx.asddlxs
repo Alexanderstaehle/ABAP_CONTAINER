@@ -19,13 +19,12 @@ annotate view ZC_ABFALL_194 with
           identification: [ { position: 10, importance: #HIGH } ],
           dataPoint.title: 'AbfallID' }
   AbfallID;
-  
+
   @UI: {  lineItem:       [ { position: 20, importance: #HIGH } ],
           identification: [ { position: 20, importance: #HIGH} ] }
   Kategorie;
   @UI: {  lineItem:       [ { position: 30, importance: #HIGH } ],
-          identification: [ { position: 30, importance: #HIGH } ],
-          selectionField: [ { position: 30 } ] }
+          identification: [ { position: 30, importance: #HIGH } ] }
   Waehrung;
 
   @UI: {  lineItem:       [ { position: 40, importance: #HIGH } ],
